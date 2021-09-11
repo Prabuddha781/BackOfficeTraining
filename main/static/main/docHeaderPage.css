@@ -1,0 +1,173 @@
+.bg-grayish{
+    background-color: rgb(238, 238, 238);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 11px;
+}
+
+.allFont{
+    font-size: 12px;
+}
+
+.icons-nav{
+    height: 20px;
+    width: 24px;
+}
+
+.save-icon, .cancel-icon{
+    height: 22px;
+    width: 28px;
+}
+
+.back-icon, .step_up-icon{
+    height: 22px;
+    width: 22px;
+}
+
+.second-half-icon{
+    height: 22px;
+}
+
+.overview-btn{
+    background-image: url('static/overview.png');
+    height: 20px;
+    width: 25px;
+    background-repeat: no-repeat;
+}
+
+.strLine{
+    margin: 8px 0px;
+    width: 90vw;
+}
+
+.legend{
+    float:none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.genDataforms{
+    display: grid;
+    width: 60vw;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 120px 100px 120px 40px 120px 140px;
+    grid-column-gap: 20px;
+    grid-row-gap: 5px;
+    grid-template-areas: "docNumLabel docNumInput docType docTypeInput companyCode companyCodeInput"
+                         "docDate docDateInput . . currencyLabel currencyInput"
+                         "postDateLabel postDateInput . . translatnDateLabel translatnDateInput"
+                         "referenceLabel referenceInput referenceInput . periodLabel periodInput"
+                         "docHeaderLabel docHeaderInput docHeaderInput .  fiscalLabel fiscalInput"
+                         "tradingPartLabel tradingPartInput . . . .";
+}
+
+#docNumLabel{
+    grid-area: docNumLabel;
+}
+
+#docNumInput{
+    grid-area: docNumInput;
+}
+
+#docType{
+    grid-area: docType;
+}
+
+#docTypeInput{
+    grid-area: docTypeInput;
+}
+
+#companyCode{
+    grid-area: companyCode;
+}
+
+#companyCodeInput{
+    grid-area: companyCodeInput;
+    width: 50px;
+}
+
+#docDate{
+    grid-area: docDate;
+}
+
+#docDateInput{
+    grid-area: docDateInput;
+}
+
+#currencyLabel{
+    grid-area: currencyLabel;
+}
+
+.currencyInput{
+    grid-area: currencyInput;
+}
+
+#currencyInput{
+    width: 40px;
+}
+
+#second-page-amt{
+    width: 80px;
+}
+
+#postDateLabel{
+    grid-area: postDateLabel;
+}
+
+#postDateInput{
+    grid-area: postDateInput;
+}
+
+#translatnDateLabel{
+    grid-area: translatnDateLabel;
+}
+
+#translatnDateInput{
+    grid-area: translatnDateInput;
+}
+
+#referenceLabel{
+    grid-area: referenceLabel;
+}
+
+#referenceInput{
+    grid-area: referenceInput;
+    width: 180px;
+}
+
+#periodLabel{
+    grid-area: periodLabel;
+}
+
+#periodInput{
+    grid-area: periodInput;
+    width: 50px;
+}
+
+#docHeaderLabel{
+    grid-area: docHeaderLabel;
+}
+
+#docHeaderInput{
+    grid-area: docHeaderInput;
+}
+
+#fiscalLabel{
+    grid-area: fiscalLabel;
+}
+
+#fiscalInput{
+    grid-area: fiscalInput;
+    width: 50px;
+}
+
+#tradingPartLabel{
+    grid-area: tradingPartLabel;
+}
+
+#tradingPartInput{
+    grid-area: tradingPartInput;
+}
+
+.checkboxGroup{
+    width: 60vw;
+}

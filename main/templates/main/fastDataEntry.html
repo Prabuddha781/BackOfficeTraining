@@ -1,0 +1,202 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block override_me %} <link rel="stylesheet" href="{% static 'main/fastDataEntry.css' %}"> {% endblock %}
+{% block content %}
+{% include 'main/nav-base.html' %}
+        <div class="container-fluid d-flex flex-row mt-1">
+            <form action="/">
+                <input type="image" src="{% static 'main/icons/execute.png' %}" class="mx-1 icons-nav my-auto">
+                <input type="text">
+            </form>
+            <div class="mx-2"><img class="save-icon mx-1" src="{% static 'main/icons/save.png' %}" alt=""></div>
+            <div class="mx-2"><img class="back-icon mx-1" src="{% static 'main/icons/back.png' %}" alt=""></div>
+            <div class="mx-2"><img class="step_up-icon mx-1" src="{% static 'main/icons/step_up.png' %}" alt=""></div>
+            <div class="mx-2"><img class="cancel-icon" src="{% static 'main/icons/cancel.png' %}" alt=""></div>
+            <div class="mx-2"><img class="second-half-icon" src="{% static 'main/icons/second_half.png' %}" alt=""></div>
+        </div>
+        <hr class="strLine">
+            <div class="container-fluid d-flex">
+                <button class="overview-btn mx-2 my-1"></button>
+                <button class="acct-model my-1"></button>
+            </div>
+        <hr class="strLine">
+
+        <section>
+            <form action="#" class="d-flex ms-4 mt-4 align-items-center">
+                <label for="comCode" class="me-3">Company Code</label>
+                <input type="text" name="comCode" value="TODO" style="width: 40px; vertical-align=middle;">
+                <span class="ms-1 me-5"> Transmission Company </span>
+                <input type="checkbox" name="calculateTax" class="ms-5 me-1">
+                <label for="calculateTax">calculateTax</label>
+            </form>
+        </section>
+
+        <form action="#">
+            <fieldset class="tableInput border ms-4 mt-4 pb-4 ps-3">
+                <legend class="legend w-auto"> G/L account items</legend>
+                <div class="postKey d-flex flex-column">
+                <span style="color:blue;">PK</span>
+                <input type="text" value="TODO">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                </div>
+                <div class="postKey d-flex flex-column me-3">
+                <span style="color:blue;">PK</span>
+                <input type="text" value="TODO">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                </div>
+                <div class="postKey d-flex flex-column">
+                <span style="color:blue;">PK</span>
+                <input type="text" value="TODO">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                </div>
+                <div class="postKey d-flex flex-column me-3">
+                <span style="color:blue;">PK</span>
+                <input type="text" value="TODO">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                </div>
+                <div class="postKey d-flex flex-column me-2">
+                <span style="color:blue;">PK</span>
+                <input type="text" value="TODO">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                </div>
+                <div class="postKey d-flex flex-column me-2">
+                <span style="color:blue;">PK</span>
+                <input type="text" value="TODO">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                </div>
+                <div class="postKey d-flex flex-column">
+                <span style="color:blue;">PK</span>
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                </div>
+            </fieldset>
+        </form>
+
+        <form action = "#" class="container-fluid ms-2 mt-4 w-50">
+            <fieldset class="border p-2 page4FormsBottom">
+                <legend class="legend w-auto">First line item</legend>
+                <label for="pstKey">PstKy</label>
+                <input type="text" name="pstKey" id="pstKey"> 
+                <label for="accountBottom">Account</label>
+                <input type="text" name="accountBottom" id="accountBottom"> 
+                <label for="sglInd">SGL Ind</label>
+                <input type="text" name="sglInd" id="sglInd"> 
+                <label for="tType">TType</label>
+                <input type="text" name="tType" id="tType"> 
+                <label for="newCoCode">New co. Code</label>
+                <input type="text" name="newCoCode" id="newCoCode"> 
+            </fieldset>
+        </form>
+{% endblock %}

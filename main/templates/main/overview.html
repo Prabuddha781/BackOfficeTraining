@@ -1,0 +1,132 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block override_me %} <link rel="stylesheet" href="{% static 'main/overview.css' %}"> {% endblock %}
+{% block content %}
+{% include 'main/nav-base.html' %}
+            <div class="container-fluid d-flex flex-row mt-1">
+                <form action="/">
+                    <input type="image" src="{% static 'main/icons/execute.png' %}" class="mx-1 icons-nav my-auto">
+                    <input type="text">
+                </form>
+                <div class="mx-2"><img class="save-icon mx-1" src="{% static 'main/icons/save.png' %}" alt=""></div>
+                <div class="mx-2"><img class="back-icon mx-1" src="{% static 'main/icons/back.png' %}" alt=""></div>
+                <div class="mx-2"><img class="step_up-icon mx-1" src="{% static 'main/icons/step_up.png' %}" alt=""></div>
+                <div class="mx-2"><img class="cancel-icon" src="{% static 'main/icons/cancel.png' %}" alt=""></div>
+                <div class="mx-2"><img class="second-half-icon" src="{% static 'main/icons/second_half.png' %}" alt=""></div>
+            </div>
+        <hr class="strLine">
+            <div class="container-fluid d-flex">
+                <button class="overview-btn mx-2 my-1"></button>
+                <div class="mx-2"><img class="lastStep-icon mx-1 my-1" style="width: 20px" src="{% static 'main/icons/previousItem.png' %}" alt="" ></div>
+                <div class="mx-2"><img class="nextItem-icon mx-1 my-1" style="width: 20px" src="{% static 'main/icons/nextItem.png' %}" alt=""></div>
+                <button class="fast-data-entry-btn mx-2 my-1"></button>
+                <div class="mx-2"><img class="tax-icon mx-1 my-1" style="width: 45px" src="{% static 'main/icons/tax.png' %}" alt=""></div>
+                <div class="mx-2"><img class="addedData-icon mx-1 my-1" src="{% static 'main/icons/additionalData.png' %}" alt=""></div>
+                <button class="acct-model my-1"></button>
+                <div class="mx-2"><img class="check-icon mx-1 my-1" style="width: 70px" src="{% static 'main/icons/check.png' %}" alt=""></div>
+            </div>
+        <hr class="strLine ms-4">
+
+        <section>
+            <form action="#" method="post">
+                {% csrf_token %}
+                <fieldset class="formsInfoPg5 container-fluid mt-4 ms-4">
+                    <label for="DocDate" id="DocDateLabel">Document Date</label>
+                    <input type="text" name="DocDate" id="DocDateInput" value="{{ lastSecondPage.docDate }}" disabled="DISABLED"> 
+                    <label for="type" id="typeLabel">Type</label>
+                    <input type="text" name="type" id="typeInput" value="{{ lastSecondPage.docType }}" disabled="DISABLED"> 
+                    <label for="comCode" id="comCodeLabel">Company Code</label>
+                    <input type="text" name="comCode" id="comCodeInput" value="{{ lastSecondPage.companyCode }}" disabled="DISABLED"> 
+                    <label for="postDate" id="postDateLabel">Posting Date</label>
+                    <input type="text" name="postDate" id="postDateInput" value="{{ lastSecondPage.postDate }}" disabled="DISABLED"> 
+                    <label for="period" id="periodLabel">Period</label>
+                    <input type="text" name="period" id="periodInput" value="{{ lastSecondPage.period }}" disabled="DISABLED"> 
+                    <label for="currency" id="currencyLabel">Currency</label>
+                    <input type="text" name="currency" id="currencyInput" value="{{ lastSecondPage.currency }}" disabled="DISABLED"> 
+                    <label for="docNum" id="docNumLabel">Document Number</label>
+                    <input type="text" name="docNum" id="docNumInput" disabled="DISABLED"> 
+                    <label for="fiscal" id="fiscalLabel">Fiscal Year</label>
+                    <input type="text" name="fiscal" id="fiscalInput" value="{{ fiscal }}" disabled="DISABLED"> 
+                    <label for="translatnDate" id="translatnDateLabel">Translatn Date</label>
+                    <input type="text" name="translatnDate" id="translatnDateInput" value="{{ lastSecondPage.transDate }}" disabled="DISABLED"> 
+                    <label for="reference" id="referenceLabel">Reference</label>
+                    {{ form.reference }}
+                    <label for="tradingPartBA" id="tradingPartLabel">Trading Part.BA</label>
+                    {{ form.trdgPartBA }}
+                    <label for="docHeader" id="docHeaderTextLabel">Doc. Header Text</label>
+                    {{ form.docHeader }}
+                    <div class="textsExist">
+                    <label for="textsExist" id="textsExistLabel">Texts Exist</label>
+                    <input type="checkbox" name="textsExist" id="textsExistInput" disabled="DISABLED"> 
+                    </div>
+                    <div class="netEntry">
+                    <label for="netEntry" id="netEntryLabel">Net Entry</label>
+                    <input type="checkbox" name="netEntry" id="netEntryInput" disabled="DISABLED"> 
+                    </div>
+                </fieldset>
+            </forms>
+        </section>
+
+        <section class="ms-4 mt-4">
+            <fieldset class="lineItems container-fluid">
+                <legend class="legend ">
+                    Line items
+                </legend>
+                <table>
+                    <tr>
+                        <th style="height: 30px; width: 90px;">Itm</th>
+                        <th style="height: 30px; width: 90px;">PK</th>
+                        <th style="height: 30px; width: 90px;">BusA</th>
+                        <th style="height: 30px; width: 90px;">Acct no.</th>
+                        <th style="height: 30px; width: 300px;">Description</th>
+                        <th style="height: 30px; width: 90px;">Tx</th>
+                        <th style="height: 30px; width: 90px;">Amount</th>
+                    </tr>
+                    <hr class="strLine">
+                    <tr>
+                        <td style="height: 30px; width: 90px;">001</td>
+                        <td>{{ lastSecondPage.pstKey }}</td>
+                        <td> {{ lastDebitEntry.busArea }}</td>
+                        <td> {{ lastSecondPage.accountBottom }}</td>
+                        <td> {{ companyInfo.1.0 }}</td>
+                        <td> </td>
+                        <td> {{ lastDebitEntry.amount }}</td>
+                    </tr>
+                    <tr>
+                        <td style="height: 30px; width: 90px;">002</td>
+                        <td>{{ lastDebitEntry.pstKey }}</td>
+                        <td> {{ lastCreditEntry.busArea }}</td>
+                        <td> {{ lastCreditEntry.accountBottom }}</td>
+                        <td> Misc. Adjustments</td>
+                        <td> </td>
+                        <td>-{{ lastCreditEntry.amount }} </td>
+                    </tr>
+                    <tr class="lastRow">
+                        <td style="height: 200px; width: 90px;"><span style="color: blue;">D.</span>  <span style="color: red;">{{ lastDebitEntry.amount }}</span></td>
+                        <td></td>
+                        <td><span style="color: blue;">C.</span>  <span style="color: red;">{{ lastCreditEntry.amount }}</span></td>
+                        <td></td>
+                        <td class="text-align-center"><span style="color: blue;">Itm</span><span style="color: red;">2</span> </td>
+                        <td></td>
+                        <td><span style="color: red;">{{ differenceDebitCredit }}</span></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </section>
+
+        <form action = "#" class="container-fluid ms-4 w-50">
+            <fieldset class="border p-2 page4FormsBottom">
+                <legend class="legend w-auto">First line item</legend>
+                <label for="pstKey">PstKy</label>
+                <input type="text" name="pstKey" id="pstKey"> 
+                <label for="accountBottom">Account</label>
+                <input type="text" name="accountBottom" id="accountBottom"> 
+                <label for="sglInd">SGL Ind</label>
+                <input type="text" name="sglInd" id="sglInd"> 
+                <label for="tType">TType</label>
+                <input type="text" name="tType" id="tType"> 
+                <label for="newCoCode">New co. Code</label>
+                <input type="text" name="newCoCode" id="newCoCode"> 
+            </fieldset>
+        </form>
+{% endblock%}

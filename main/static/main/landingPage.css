@@ -1,0 +1,58 @@
+html{
+    font-family: arial monospace;
+    font-size: 15px;
+}
+
+.strLine{
+    margin: 0px 0px;
+    width: 90vw;
+}
+
+.transaction-btn{
+    background-color: rgb(238, 238, 238);
+}
+
+.bg-grayish{
+    background-color: rgb(238, 238, 238);
+}
+
+.icons-nav{
+    height: 20px;
+    width: 24px;
+}
+
+.save-icon, .cancel-icon{
+    height: 22px;
+    width: 28px;
+}
+
+.back-icon, .step_up-icon{
+    height: 22px;
+    width: 22px;
+}
+
+.second-half-icon{
+    height: 22px;
+}
+
+.homepage-third-row{
+    width: 20vw;
+    height: 25px;
+}
+.menu-options{
+    width: 40vw;
+    border: black 2px solid;
+}
+
+.menu-options{
+    font-size: 11px;
+}
+
+.favorites-ul{
+    list-style-image: url('/static/main/icons/favorites-20-16px.png');
+}
+
+.transactions-ul{
+    list-style-image: url('icons/folder-20px-16px.png');
+}
+

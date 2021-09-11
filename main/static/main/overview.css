@@ -1,0 +1,227 @@
+.bg-grayish{
+    background-color: rgb(238, 238, 238);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 11px;
+}
+
+.allFont{
+    font-size: 12px;
+}
+
+.icons-nav{
+    height: 20px;
+    width: 24px;
+}
+
+.save-icon, .cancel-icon{
+    height: 22px;
+    width: 28px;
+}
+
+.back-icon, .step_up-icon{
+    height: 22px;
+    width: 22px;
+}
+
+.second-half-icon{
+    height: 22px;
+}
+
+.overview-btn{
+    background-image: url('static/overview.png');
+    height: 20px;
+    width: 25px;
+    background-repeat: no-repeat;
+}
+
+.fast-data-entry-btn{
+    background-image: url('static/fast-data-entry.png');
+    height:20px;
+    width: 100px;
+    background-repeat: no-repeat;
+}
+
+.acct-model{
+    background-image: url('static/acct-model.png');
+    height:20px;
+    width: 85px;
+    background-repeat: no-repeat;
+}
+
+.strLine{
+    margin: 8px 0px;
+    width: 90vw;
+}
+
+.infoFromBefore{
+    margin-top: 20px;;
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-rows: repeat(2);
+    grid-template-columns: 120px 400px;
+    grid-template-areas: "glAccLabel glAccText"
+                         "comCodeLabel comCodeText";
+}
+
+.legend{
+    float:none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.formsInfoPg5{
+    display: grid;
+    grid-template-rows: repeat(5);
+    grid-template-columns: 120px 100px 100px 80px 110px 90px;
+    grid-column-gap: 30px;
+    grid-row-gap: 5px;
+    grid-template-areas: "DocDateLabel DocDateInput typeLabel typeInput comCodeLabel comCodeInput"
+                         "postDateLabel postDateInput periodLabel periodInput currencyLabel currencyInput"
+                         "docNumLabel docNumInput fiscalLabel fiscalInput translatnDateLabel translatnDateInput"
+                         "referenceLabel referenceInput referenceInput . tradingPartLabel tradingPartInput"
+                         "docHeaderTextLabel docHeaderTextInput docHeaderTextInput .  textsExist netEntry";
+}
+
+#DocDateLabel{
+    grid-area: DocDateLabel;
+}
+
+#DocDateInput{
+    grid-area: DocDateInput;
+    background-color: rgb(223, 223, 223);
+}
+
+#typeLabel{
+    grid-area: typeLabel;
+}
+
+#typeInput{
+    grid-area: typeInput;
+    background-color: rgb(223, 223, 223);
+}
+
+#comCodeLabel{
+    grid-area: comCodeLabel;
+}
+
+#comCodeInput{
+    grid-area: comCodeInput;
+    background-color: rgb(223, 223, 223);
+}
+
+#postDateLabel{
+    grid-area: postDateLabel;
+}
+
+#postDateInput{
+    grid-area: postDateInput;
+    background-color: rgb(223, 223, 223);
+}
+
+#periodLabel{
+    grid-area: periodLabel;
+}
+
+#periodInput{
+    grid-area: periodInput;
+    background-color: rgb(223, 223, 223);
+}
+
+#currencyLabel{
+    grid-area: currencyLabel;
+}
+
+#currencyInput{
+    grid-area: currencyInput;
+    background-color: rgb(223, 223, 223);
+}
+
+#docNumLabel{
+    grid-area: docNumLabel;
+}
+
+#docNumInput{
+    grid-area: docNumInput;
+    background-color: rgb(223, 223, 223);
+}
+
+#fiscalLabel{
+    grid-area: fiscalLabel;
+}
+
+#fiscalInput{
+    grid-area: fiscalInput;
+    background-color: rgb(223, 223, 223);
+}
+
+#translatnDateLabel{
+    grid-area: translatnDateLabel;
+}
+
+#translatnDateInput{
+    grid-area: translatnDateInput;
+    background-color: rgb(223, 223, 223);
+}
+
+#referenceLabel{
+    grid-area: referenceLabel;
+}
+
+#referenceInput{
+    grid-area: referenceInput;
+    width: 180px;
+}
+
+#tradingPartLabel{
+    grid-area: tradingPartLabel;
+}
+
+#tradingPartInput{
+    grid-area: tradingPartInput;
+}
+
+#docHeaderTextLabel{
+    grid-area: docHeaderTextLabel;
+}
+
+#docHeaderTextInput{
+    grid-area: docHeaderTextInput;
+}
+
+.textsExist{
+    grid-area: textsExist;
+}
+
+.netEntry{
+    grid-area: netEntry;
+}
+
+.legend{
+    float:none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+th{
+    color: red;
+}
+
+table > tr > td{
+    margin: 5px 0;
+}
+
+#pstKey{
+    width: 40px;
+}
+
+#tType{
+    width: 60px;
+}
+
+#sglInd{
+    width: 30px;
+}
+
+#newCoCode{
+    width: 50px;
+}

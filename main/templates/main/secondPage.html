@@ -1,0 +1,89 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block override_me %} <link rel="stylesheet" href="{% static 'main/secondPage.css' %}">{% endblock %}
+{% block content %}
+{% include 'main/nav-base.html' %}
+            <div class="container-fluid d-flex flex-row mt-1">
+                <input type="image" src="{% static 'main/icons/execute.png' %}" form="formDataEntry" class="mx-1 icons-nav my-auto">
+                <input type="text">
+                <div class="mx-2"><img class="save-icon mx-1" src="{% static 'main/icons/save.png' %}" alt=""></div>
+                <div class="mx-2"><img class="back-icon mx-1" src="{% static 'main/icons/back.png' %}" alt=""></div>
+                <div class="mx-2"><img class="step_up-icon mx-1" src="{% static 'main/icons/step_up.png' %}" alt=""></div>
+                <div class="mx-2"><img class="cancel-icon" src="{% static 'main/icons/cancel.png' %}" alt=""></div>
+                <div class="mx-2"><img class="second-half-icon" src="{% static 'main/icons/second_half.png' %}" alt=""></div>
+            </div>
+        <hr class="strLine">
+            <div class="container-fluid">
+                <button style="background-image: url('{% static '/main/icons/fast-data-entry.png' %}');" class="fast-data-entry-btn mx-2 my-1"></button>
+                <button style="background-image: url('{% static '/main/icons/acct-model.png' %}');" class="acct-model my-1"></button>
+            </div>
+        <hr class="strLine">
+        
+        <section>
+            <form action="" method="post" id="formDataEntry">
+                {% csrf_token %}
+                {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %} 
+                        <p>
+                            <strong>{{ field.label }} - {{ error|escape }}</strong>
+                        </p>
+                    {% endfor %}
+                {% endfor %}
+                {% endif %}
+                <div class="forms-secondPage">
+                    <label for="{{form.DocDate.html_name}}" id="docDate" class="ms-5">Document Date</label>
+                    {{ form.docDate }}
+                    <label for="docType" id="docType" class="ms-5">Document Type</label>
+                    {{ form.docType }}
+                    <label for="{{ form.companyCode.html_name }}" id="companyCode" class="ms-5">Company Code:</label>
+                    {{ form.companyCode }}
+                    <label for="{{ form.postDate.html_name }}" id="postDate" class="ms-5 me-3">Posting Date</label>
+                    {{ form.postDate }}
+                    <label for="{{ form.period.html_name }}" id="period" class="ms-5">Period</label>
+                    {{ form.period }}
+                    
+                    <label for="{{ form.currency.html_name }}" id="currency" class="ms-5">Currency</label>
+                    {{ form.currency }}
+                    <input type="text" id="second-page-amt" name="second-page-amt" value=""> <br>
+                    <label for="{{ form.docNum.html_name }}" id="docNum" class="ms-5 me-3">Document Number</label>
+                    <input type="text" id="docNumInput" name="docNum" value="">
+                    <label for="{{ form.transDate.html_name }}" id="transDate" class="ms-5">Translatn Date</label>
+                    {{ form.transDate }}<br>
+                    <label for="{{ form.reference.html_name }}" id="reference" class="ms-5">Reference</label>
+                    {{ form.reference }}
+                    <label for="{{ form.docHeader.html_name }}" id="docHeader" class="ms-5">Doc. Header Text</label>
+                    {{ form.docHeader }}
+                    <label for="{{ form.partnerBArea.html_name }}" id="partnerBusArea" class="ms-5">Partner Bus. Area</label>
+                    {{ form.partnerBArea }}
+
+                    </div>
+
+                    <fieldset class="border p-2 ms-5">
+                    <legend class="legend w-auto">Control</legend>
+                    <input type="checkbox" name="control-chbox" id="control-chbox" checked> 
+                    <label for="control-chbox">Only transfer amnts in document curr.in invoice</label>
+                    </fieldset>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>    
+                    <br>
+                    <br>
+                    <br>
+
+                    <fieldset class="border p-2 page2FormsBottom ms-5">
+                    <legend class="legend w-auto">First line item</legend>
+                    <label for="pstKey">PstKy</label>
+                    {{ form.pstKey }}
+                    <label for="accountBottom">Account</label>
+                    {{ form.accountBottom }}
+                    <label for="tType">TType</label>
+                    <input type="text" name="tType" id="tType"> 
+                    <label for="sglInd">SGL Ind</label>
+                    <input type="text" name="sglInd" id="sglInd"> 
+               </fieldset>
+            </form>
+        </section>
+{% endblock %}

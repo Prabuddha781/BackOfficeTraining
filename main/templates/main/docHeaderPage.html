@@ -1,0 +1,106 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block override_me %} <link rel="stylesheet" href="{% static 'main/docHeaderPage.css' %}"> {% endblock %}
+{% block content %}
+{% include 'main/nav-base.html'%}
+            <div class="container-fluid d-flex flex-row mt-1">
+                <form action="/">
+                    <input type="image" src="{% static 'main/icons/execute.png' %}" class="mx-1 icons-nav my-auto">
+                    <input type="text">
+                </form>
+                <div class="mx-2"><img class="save-icon mx-1" src="{% static 'main/icons/save.png' %}" alt=""></div>
+                <div class="mx-2"><img class="back-icon mx-1" src="{% static 'main/icons/back.png' %}" alt=""></div>
+                <div class="mx-2"><img class="step_up-icon mx-1" src="{% static 'main/icons/step_up.png' %}" alt=""></div>
+                <div class="mx-2"><img class="cancel-icon" src="{% static 'main/icons/cancel.png' %}" alt=""></div>
+                <div class="mx-2"><img class="second-half-icon" src="{% static 'main/icons/second_half.png' %}" alt=""></div>
+            </div>
+        <hr class="strLine">  
+            <div class="container-fluid d-flex">
+                <button class="overview-btn mx-2 my-1"></button>
+            </div>
+        <hr class="strLine">
+
+        <section>
+            <form action="#">
+                <fieldset class="genDataforms border ms-4 mt-4">
+                    <legend class="legend w-auto">
+                    General data
+                    </legend>
+                    <label for="docNum" id="docNum">Document Number</label>
+                    <input type="text" id="docNumInput" name="docNum"> 
+                    <label for="docType" id="docType">Document Type</label>
+                    <input type="text" id="docTypeInput" name="docType" value="?"> 
+                    <label for="companyCode" id="companyCode">Company Code</label>
+                    <input type="text" id="companyCodeInput" name="companyCode" value="?"> <br>
+                    <label for="docDate" id="docDate">Document Date</label>
+                    <input type="text" id="docDateInput" name="docDate" value="?"> 
+                    <label for="currency" id="currencyLabel">Currency</label>
+                    <div class="currencyInput">
+                    <input type="text" id="currencyInput" name="currency" value="?"> 
+                    <input type="text" id="second-page-amt" name="second-page-amt" value=""> <br>
+                    </div>
+                    <label for="postDate" id="postDateLabel">Posting Date</label>
+                    <input type="text" id="postDateInput" name="postDate" value="?">  
+                    <label for="transDate" id="translatnDateLabel">Translatn Date</label>
+                    <input type="text" id="translatnDateInput" name="transDate" value=""> <br>
+                    <label for="reference" id="referenceLabel">Reference</label>
+                    <input type="text" name="reference" id="referenceInput"> 
+                    <label for="period" id="periodLabel">Period</label>
+                    <input type="text" id="periodInput" name="period" value=""> 
+                    <label for="docHeader" id="docHeaderLabel">Doc. Header Text</label>
+                    <input type="text" id="docHeaderInput" name="docHeader" value=""><br>
+                    <label for="fiscal" id="fiscalLabel">Fiscal Year</label>
+                    <input type="text" name="fiscal" id="fiscalInput" value="TODO"> 
+                    <label for="tradingPart" id="tradingPartLabel">Trading Part.BA</label>
+                    <input type="text" name="tradingPart" id="tradingPartInput"> 
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="d-flex flex-row checkboxGroup ms-4 mt-4">
+            <div class="d-flex flex-column w-50">
+                <div class="my-2">
+                <input type="checkbox" name="docCurrency">
+                <label for="docCurrency">Doc.currency</label>
+                </div>
+                <div class="my-2">
+                <input type="checkbox" name="netEntry">
+                <label for="netEntry">Net Entry</label>
+                </div>
+            </div>
+            <form action="#" class="w-50">
+                <fieldset class="d-flex flex-row border">
+                <legend class="legend w-auto">Workflow Control</legend>
+                    <div class="d-flex flex-column w-50 ms-4 pb-4">
+                        <div class="my-2">
+                        <input type="checkbox" name="releaseNec">
+                        <label for="releaseNec">Release nec.</label>
+                        </div>
+                        <div class="my-2">
+                        <input type="checkbox" name="docComplete">
+                        <label for="docComplete">Doc.complete</label>
+                        </div>
+                        <div class="my-2">
+                        <input type="checkbox" name="released">
+                        <label for="released">Released</label>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column w-50">
+                        <div class="my-2">
+                        <label for="approvalPath">Approval path</label>
+                        <input type="text" name="approvalPath" style="width: 60px;">
+                        </div>
+                        <div class="my-2">
+                        <label for="releaseLevels">Release Levels</label>
+                        <input type="text" name="releaseLevels" value="0" style="width: 40px;">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+        
+        <div class="ms-4">
+            <input type="checkbox" name="releaseRequest">
+            <label for="releaseRequest">Release Request</label>
+        </div>
+{% endblock%}

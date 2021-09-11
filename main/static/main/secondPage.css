@@ -1,0 +1,187 @@
+.fast-data-entry-btn{
+    height:20px;
+    width: 100px;
+    background-repeat: no-repeat;
+}
+
+.acct-model{
+    height:20px;
+    width: 85px;
+    background-repeat: no-repeat;
+}
+
+html{
+    font-family: arial monospace;
+    font-size: 12px;
+}
+
+.bg-grayish{
+    background-color: rgb(238, 238, 238);
+}
+
+.icons-nav{
+    height: 20px;
+    width: 24px;
+}
+
+.save-icon, .cancel-icon{
+    height: 22px;
+    width: 28px;
+}
+
+.back-icon, .step_up-icon{
+    height: 22px;
+    width: 22px;
+}
+
+.second-half-icon{
+    height: 22px;
+}
+
+.menu-options{
+    font-size: 11px;
+}
+
+.forms-secondPage{
+    width: 80vw; 
+    display: grid;
+    grid-template-areas: "docDate docDateInput docType docTypeInput companyCode companyCodeInput ."
+                         "postDate postDateInput period periodInput currency currencyInput second-page-amt"
+                         "docNum docNumInput . . transDate transDateInput transDateInput"
+                         "reference referenceInput . . . . ."
+                         "docHeader docHeaderInput . . . . ."
+                         "partnerBusArea partnerBusAreaInput . . . . .";
+    grid-template-columns: 200px 200px 200px 50px 200px 50px 150px;
+}
+
+#docDate{
+    grid-area: docDate;
+}
+
+#docDateInput{
+    grid-area: docDateInput;
+}
+
+#docType{
+    grid-area: docType;
+}
+
+#docTypeInput{
+    grid-area: docTypeInput;
+}
+
+#companyCode{
+    grid-area: companyCode;
+}
+
+#companyCodeInput{
+    grid-area: companyCodeInput;
+    width: 50px;
+}
+
+#postDate{
+    grid-area: postDate;
+}
+
+#postDateInput{
+    grid-area: postDateInput
+}
+
+#period{
+    grid-area: period;
+}
+
+#periodInput{
+    grid-area: periodInput;
+}
+
+#currency{
+    grid-area: currency;
+}
+
+#currencyInput{
+    grid-area: currencyInput;
+    width: 50px;
+}
+
+#second-page-amt{
+    grid-area: second-page-amt;
+    width: 50px;
+}
+
+#docNum{
+    grid-area: docNum;
+}
+
+#docNumInput{
+    grid-area: docNumInput;
+}
+
+#transDate{
+    grid-area: transDate;
+}
+
+#transDateInput{
+    grid-area: transDateInput;
+}
+
+#reference{
+    grid-area: reference;
+}
+
+#referenceInput{
+    grid-area: referenceInput;
+}
+
+#docHeader{
+    grid-area: docHeader;
+}
+
+#docHeaderInput{
+    grid-area: docHeaderInput;
+}
+
+#partnerBusArea{
+    grid-area: partnerBusArea;
+}
+
+#partnerBusAreaInput{
+    grid-area: partnerBusAreaInput;
+}
+
+fieldset{
+    border: 1px solid black;
+    margin: 3px;
+    padding: 5px;
+    width: 40vw;
+}
+
+.legend{
+    float:none;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.forms-secondPage > input{
+    background-color: rgb(230, 230, 230);
+}
+
+.page2FormsBottom > input{
+    background-color: rgb(230, 230, 230);
+}
+
+#pstKey{
+    width: 40px;
+}
+
+#tType{
+    width: 60px;
+}
+
+#sglInd{
+    width: 30px;
+}
+
+.strLine{
+    margin: 8px 0px;
+}

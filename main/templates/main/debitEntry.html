@@ -1,0 +1,131 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block override_me %} <link rel="stylesheet" href="{% static 'main/debitEntry.css' %}"> {% endblock %}
+{% block content %}
+{% include 'main/nav-base.html' %}
+                <div class="container-fluid d-flex flex-row mt-1">
+                    <form action="/">
+                        <input type="image" src="{% static 'main/icons/execute.png' %}" form="formDebitEntry" class="mx-1 icons-nav my-auto">
+                        <input type="text">
+                    </form>
+                    <div class="mx-2"><img class="save-icon mx-1" src="{% static 'main/icons/save.png' %}" alt=""></div>
+                    <div class="mx-2"><a href="{% url 'debitEntry'%}"}><img class="back-icon mx-1" src="{% static 'main/icons/back.png' %}" alt=""></a></div>
+                    <div class="mx-2"><img class="step_up-icon mx-1" src="{% static 'main/icons/step_up.png' %}" alt=""></div>
+                    <div class="mx-2"><img class="cancel-icon" src="{% static 'main/icons/cancel.png' %}" alt=""></div>
+                    <div class="mx-2"><img class="second-half-icon" src="{% static 'main/icons/second_half.png' %}" alt=""></div>
+                </div>
+            <hr class="strLine">
+                <div class="container-fluid d-flex">
+                    <button class="overview-btn mx-2 my-1"></button>
+                    <!-- add images -->
+                    <div class="mx-2"><img class="lastStep-icon mx-1 my-1" style="width: 20px" src="{% static 'main/icons/previousItem.png' %}" alt="" ></div>
+                    <div class="mx-2"><img class="nextItem-icon mx-1 my-1" style="width: 20px" src="{% static 'main/icons/nextItem.png' %}" alt=""></div>
+                    <button class="fast-data-entry-btn mx-2 my-1"></button>
+                    <!-- add images -->
+                    <div class="mx-2"><img class="tax-icon mx-1 my-1" style="width: 45px" src="{% static 'main/icons/tax.png' %}" alt=""></div>
+                    <div class="mx-2"><img class="addedData-icon mx-1 my-1" src="{% static 'main/icons/additionalData.png' %}" alt=""></div>
+                    <button class="acct-model my-1"></button>
+                    <!-- add images -->
+                    <div class="mx-2"><img class="check-icon mx-1 my-1" style="width: 70px" src="{% static 'main/icons/check.png' %}" alt=""></div>
+                </div>
+        <section class="infoTop container-fluid ms-3 mt-2">
+            <hr class="strLine">
+            <form class="container-fluid">
+                <fieldset disabled="disabled" class="formsThirdPage">
+                    <label for="customerNum" id="customerNumLabel">Customer</label>
+                    <input type="text" name="customerNum" id="customerNumInput" value="{{ companyInfo.0 }}">
+                    <div id="carrierName" class="ms-3">{{ companyInfo.1.0 }}</div>
+                    <label for="glAcc" id="glAccLabel">G/L Acc</label>
+                    <input type="text" name="glAcc" id="glAccInput" value={{ companyInfo.1.3 }}>
+                    <label for="comCode" id="comCodeLabel">Company Code</label>
+                    <input type="text" name="comCode" id="comCodeInput" value="{{ lastSecondPage.companyCode }}">
+                    <div id="carrierStAdd" class="ms-3">{{ companyInfo.1.1 }}</div>
+                    <div id="transCom">Transmission Company</div>
+                    <div id="carrierLoc" class="ms-3">{{ companyInfo.1.2 }}</div>
+                </fieldset>
+            </form>
+        </section>
+
+        <form action="" method="post" class="ms-4" id="formDebitEntry">
+            {% csrf_token %}
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %} 
+                        <p>
+                            <strong>{{ field.label }} - {{ error|escape }}</strong>
+                        </p>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+            <fieldset class="border forms2ThirdPage">
+                <legend class="legend w-auto">Item 1/ Invoice/ 01</legend>
+                <label for="amountPg3" id="amountPg3Label">Amount</label>
+                <div class="amountPg3 d-flex">
+                {{ form.amount }}
+                {{ lastSecondPage.currency }}
+                </div>
+                <div id="calculateTax">
+                {{ form.calculateTax }}
+                {{ form.calculateTax.label }}
+                </div>
+                <label for="busArea" id="busAreaLabel">Bus. Area</label>
+                {{ form.busArea }}
+                <label for="paytTerms" id="payTermsLabel">Payment Terms</label>
+                {{ form.paytTerms }}
+                <label for="daysPercent" id="daysPercentLabel">Days/Percent</label>
+                <div class="daysPercent">
+                {{ form.percent1 }}/
+                <input type="text" name="days1" id="days1Input" style='width: 100px;'>
+                <input type="text" name="percent2" id="percent2Input" style='width: 30px;'>/
+                <input type="text" name="days2" id="days2Input" style='width: 100px;'>
+                <input type="text" name="percent3" id="percent3Input" style='width: 30px;'>
+                </div>
+                <label for="bLineDate" id="bLineDateLabel">BLine Date</label>
+                {{ form.bLineDate }}
+                <label for="discAmt" id="discAmtLabel">Disc. amount</label>
+                {{ form.discAmt }}
+                <label for="discBase" id="discBaseLabel">Disc. Base</label>
+                {{ form.discBase }}
+                <label for="invoiceRef1" id="invoiceRefLabel">Invoice ref.</label>
+                <div class="invoiceRefInput">
+                {{ form.invoiceRef1 }}/
+                <input type="text" name="invoiceRef2" id="invoiceRefInput2" style='width: 30px;'>/
+                <input type="text" name="invoiceRef3" id="invoiceRefInput3" style='width: 30px;'>
+                </div>
+                <label for="pmtBlock" id="pmtBlockLabel">Pmnt Block</label>
+                {{ form.pmtBlock }}
+                <label for="pmtMethod" id="pmtMethodLabel">Pmnt Method</label>
+                {{ form.pmtMethod }}
+                <label for="assignmentPg3" id="assignmentPg3Label">Assignment</label>
+                {{ form.assignmentPg3 }}
+                <label for="textPg3" id="textPg3Label">Text</label>
+                <div class="textPg3Input">
+                {{ form.textPg3 }}
+                <input type="image" alt="Long Texts" name="longTexts" class="longTexts" src="{% static 'main/icons/longTexts.png' %}">
+                </div>
+            </fieldset>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <fieldset class="border p-2 page2FormsBottom container-fluid">
+                    <legend class="legend w-auto">First line item</legend>
+                    <label for="pstKey">PstKy</label>
+                    {{ form.pstKey }}
+                    <label for="accountBottom">Account</label>
+                    {{ form.accountBottom }}
+                    <label for="tType">TType</label>
+                    <input type="text" name="tType" id="tType"> 
+                    <label for="sglInd">SGL Ind</label>
+                    <input type="text" name="sglInd" id="sglInd"> 
+                    <label for="newCoCode">New co. Code</label>
+                    <input type="text" name="newCoCode" id="newCoCode"> 
+               </fieldset>
+        </form>
+
+                
+
+{% endblock %}

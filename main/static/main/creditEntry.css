@@ -1,0 +1,283 @@
+.bg-grayish{
+    background-color: rgb(238, 238, 238);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 11px;
+}
+
+.allFont{
+    font-size: 12px;
+}
+
+.icons-nav{
+    height: 20px;
+    width: 24px;
+}
+
+.save-icon, .cancel-icon{
+    height: 22px;
+    width: 28px;
+}
+
+.back-icon, .step_up-icon{
+    height: 22px;
+    width: 22px;
+}
+
+.second-half-icon{
+    height: 22px;
+}
+
+.overview-btn{
+    height: 20px;
+    width: 25px;
+    background-repeat: no-repeat;
+}
+
+.fast-data-entry-btn{
+    height:20px;
+    width: 100px;
+    background-repeat: no-repeat;
+}
+
+.acct-model{
+    height:20px;
+    width: 85px;
+    background-repeat: no-repeat;
+}
+
+.strLine{
+    margin: 8px 0px;
+}
+
+.infoFromBefore{
+    margin-top: 20px;;
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-rows: repeat(2);
+    grid-template-columns: 120px 400px;
+    grid-template-areas: "glAccLabel glAccText"
+                         "comCodeLabel comCodeText";
+}
+
+#glAccLabel{
+    grid-area: glAccLabel;
+}
+
+.glAccText{
+    grid-area: glAccText;
+}
+
+#comCodeLabel{
+    grid-area: comCodeLabel;
+}
+
+.comCodeText{
+    grid-area: comCodeText;
+}
+
+.legend{
+    float:none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.item2Forms{
+    display: grid;
+    width:60vw;
+    margin-top: 30px;
+    grid-template-rows: repeat(12);
+    grid-template-columns: 100px 150px 100px 150px 80px;
+    grid-column-gap: 30px;
+    grid-template-areas:"amountLabel amountInput . . ."
+                        "taxCodeLabel taxCodeInput . . ."
+                        "taxJurLabel taxJurInput . . ."
+                        ". . . . ."
+                        "busAreaLabel busAreaInput trdgPartBALabel trdgPartBAInput ."
+                        "costCenterLabel costCenterInput orderLabel orderInput ."
+                        "profitCenterLabel profitCenterInput profitSegmentLabel profitSegmentInput ."
+                        "wbsElementLabel wbsElementInput networkLabel networkText ."
+                        ". . . . moreIcon"
+                        "purchasingDocLabel purchasingDocInput quantityLabel quantity ."
+                        "assignmentLabel assignmentInput . . ."
+                        "textLabel textLongText textLongText textLongText textLongText";
+}
+
+#amountLabel{
+    grid-area: amountLabel;
+}
+
+.amountInput{
+    grid-area: amountInput;
+}
+
+#taxCodeLabel{
+    grid-area: taxCodeLabel;
+}
+
+#taxCodeInput{
+    grid-area: taxCodeInput;
+    width: 30px;
+}
+
+#taxJurLabel{
+    grid-area: taxJurLabel;
+}
+
+#taxJurInput{
+    grid-area: taxJurInput;
+}
+
+#busAreaLabel{
+    grid-area: busAreaLabel;
+}
+
+#busAreaInput{
+    grid-area: busAreaInput;
+    width: 50px;
+}
+
+#trdgPartBALabel{
+    grid-area: trdgPartBALabel;
+}
+
+#trdgPartBAInput{
+    grid-area: trdgPartBAInput;
+    width: 50px;
+}
+
+#costCenterLabel{
+    grid-area: costCenterLabel;
+}
+
+#costCenterInput{
+    grid-area: costCenterInput;
+    width: 80px;
+}
+
+#orderLabel{
+    grid-area: orderLabel;
+}
+
+#orderInput{
+    grid-area: orderInput;
+    width: 80px;
+}
+
+#profitCenterLabel{
+    grid-area: profitCenterLabel;
+}
+
+#profitCenterInput{
+    grid-area: profitCenterInput;
+    width: 80px;
+}
+
+#profitSegmentLabel{
+    grid-area: profitSegmentLabel;
+}
+
+#profitSegmentInput{
+    grid-area: profitSegmentInput;
+}
+
+#wbsElementLabel{
+    grid-area: wbsElementLabel;
+}
+
+#wbsElementInput{
+    grid-area: wbsElementInput;
+    width: 150px;
+}
+
+#networkLabel{
+    grid-area: networkLabel;
+}
+
+.networkText{
+    grid-area: networkText;
+}
+
+#networkInput1{
+    width: 60px;
+}
+
+#networkInput2{
+    width: 60px;
+}
+
+#moreIcon{
+    grid-area: moreIcon;
+}
+
+#purchasingDocLabel{
+    grid-area: purchasingDocLabel;
+}
+
+.purchasingDoc{
+    grid-area: purchasingDocInput;
+}
+
+#purchasingDocInput1{
+    width: 55px;
+}
+
+#purchasingDocInput2{
+    width: 55px;
+}
+
+#quantityLabel{
+    grid-area: quantityLabel;
+}
+
+.quantity{
+    grid-area: quantity;
+}
+
+#quantityInput1{
+    width: 55px;
+}
+
+#quantityInput2{
+    width: 55px;
+}
+
+#assignmentLabel{
+    grid-area: assignmentLabel;
+}
+
+#assignmentInput{
+    grid-area: assignmentInput;
+}
+
+#textLabel{
+    grid-area: textLabel;
+}
+
+.textLongText{
+    grid-area: textLongText;
+}
+
+#textInput{
+    width: 465px;
+}
+
+#pstKey{
+    width: 40px;
+}
+
+#tType{
+    width: 60px;
+}
+
+#sglInd{
+    width: 30px;
+}
+
+#newCoCode{
+    width: 50px;
+}
+
+.page4FormsBottom{
+    width: 60vw;
+    margin-top: 30px;
+}

@@ -1,0 +1,78 @@
+.bg-grayish{
+    background-color: rgb(238, 238, 238);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 11px;
+}
+
+.allFont{
+    font-size: 12px;
+}
+
+.icons-nav{
+    height: 20px;
+    width: 24px;
+}
+
+.save-icon, .cancel-icon{
+    height: 22px;
+    width: 28px;
+}
+
+.back-icon, .step_up-icon{
+    height: 22px;
+    width: 22px;
+}
+
+.second-half-icon{
+    height: 22px;
+}
+
+.overview-btn{
+    background-image: url('static/overview.png');
+    height: 20px;
+    width: 25px;
+    background-repeat: no-repeat;
+}
+
+.acct-model{
+    background-image: url('static/acct-model.png');
+    height:20px;
+    width: 85px;
+    background-repeat: no-repeat;
+}
+
+.strLine{
+    margin: 8px 0px;
+    width: 90vw;
+}
+
+.legend{
+    float:none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.tableInput{
+    display: grid;
+    width: 80%;
+    grid-template-rows: repeat(1, 1fr); 
+    grid-column-gap: 3px;
+    grid-template-columns: 20px 210px 210px 60px 140px 210px 40px;
+    grid-area: 'pk account amount tax costCtr order busArea'
+}
+
+#pstKey{
+    width: 40px;
+}
+
+#tType{
+    width: 60px;
+}
+
+#sglInd{
+    width: 30px;
+}
+
+#newCoCode{
+    width: 50px;
+}

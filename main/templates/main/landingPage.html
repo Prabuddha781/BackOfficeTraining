@@ -1,0 +1,80 @@
+{% extends 'main/base.html'%}
+{% load static %}
+{% block override_me %} <link rel="stylesheet" href="{% static 'main/landingPage.css' %}">{% endblock%}
+{% block content %}
+        <section class="header container-fluid">
+            <div class="container-fluid d-flex flex-row py-1 mt-3">
+                <div class="mx-2">Document</div>
+                <div class="mx-2">Edit</div>
+                <div class="mx-2">Goto</div>
+                <div class="mx-2">Extras</div>
+                <div class="mx-2">System</div>
+                <div class="mx-2">Help</div>
+                <div class="ms-auto"><img class="my-auto" src="{% static "main/icons/beach-ball.png" %}" alt=""></div>
+            </div>
+            <hr class="strLine">
+            <div class="container-fluid d-flex flex-row mt-1">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                   <input type="image" src="{% static "main/icons/execute.png" %}" class="mx-1 icons-nav my-auto">
+                </form>
+                <div class="mx-2"><img class="save-icon mx-1" src="{% static "main/icons/save.png" %}" alt=""></div>
+                <div class="mx-2"><img class="back-icon mx-1" src="{% static "main/icons/back.png" %}" alt=""></div>
+                <div class="mx-2"><img class="step_up-icon mx-1" src="{% static "main/icons/step_up.png" %}" alt=""></div>
+                <div class="mx-2"><img class="cancel-icon" src="{% static "main/icons/cancel.png" %}" alt=""></div>
+                <div class="mx-2"><img class="second-half-icon" src="{% static "main/icons/second_half.png" %}" alt=""></div>
+            </div>
+            <div class="container-fluid mt-2"><img src="{% static 'main/icons/homepage-third-row.png' %}" alt="" class="homepage-third-row mb-2"></div>
+        </section>
+        <section class="main-content d-flex flex-row">
+            <div class="menu-options container-fluid">
+                <div class="d-flex"><img style="height: 18px; width: 22px;" src="{% static '/main/icons/folder-20px-16px.png' %}" alt=""><p>Favorties</p></div>  
+                <ul style="list-style-image: url({% static '/main/icons/favorites-20-16px.png' %})">
+                    <li><a href="{% url 'secondPage' %}">Park Document</a></li>
+                    <li>Park Customer Invoice</li>
+                </ul>
+                <div class="d-flex"><img style="height: 18px; width: 22px;" src="{% static '/main/icons/folder-20px-16px.png' %}" alt=""><p>User Menu for Pierre</p></div>
+                <ul style="list-style-image: url({% static '/main/icons/folder-20px-16px.png' %})">
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                    <li>"TODO"</li>
+                </ul>
+            </div>
+            <div class="bg-img-homepage" style="background-image: url({% static '/main/icons/home-background-image.png' %}); background-repeat: no-repeat; width: 60vw; background-position-x: center;">
+            </div>
+        </section>
+{% endblock content %}

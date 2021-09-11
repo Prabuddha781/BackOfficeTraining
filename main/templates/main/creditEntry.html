@@ -1,0 +1,115 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block override_me %} <link rel="stylesheet" href="{% static 'main/creditEntry.css' %}"> {% endblock %}
+{% block content %}
+{% include 'main/nav-base.html' %}
+            </section>
+                <div class="container-fluid d-flex flex-row mt-1">
+                    <form action="/">
+                        <input type="image" src="{% static 'main/icons/execute.png' %}" class="mx-1 icons-nav my-auto">
+                        <input type="text">
+                    </form>
+                    <div class="mx-2"><img class="save-icon mx-1" src="{% static 'main/icons/save.png' %}" alt=""></div>
+                    <div class="mx-2"><img class="back-icon mx-1" src="{% static 'main/icons/back.png' %}" alt=""></div>
+                    <div class="mx-2"><img class="step_up-icon mx-1" src="{% static 'main/icons/step_up.png' %}" alt=""></div>
+                    <div class="mx-2"><img class="cancel-icon" src="{% static 'main/icons/cancel.png' %}" alt=""></div>
+                    <div class="mx-2"><img class="second-half-icon" src="{% static 'main/icons/second_half.png' %}" alt=""></div>
+                </div>
+            <hr class="strLine">
+                <div class="container-fluid d-flex">
+                    <input type="image" src="{% static 'main/icons/overview.png' %}" class="overview-btn mx-2 my-1" form="creditEntryForm">
+                    <div class="mx-2"><img class="lastStep-icon mx-1 my-1" style="width: 20px" src="{% static 'main/icons/previousItem.png' %}" alt="" ></div>
+                    <div class="mx-2"><img class="nextItem-icon mx-1 my-1" style="width: 20px" src="{% static 'main/icons/nextItem.png' %}" alt=""></div>
+                    <input type="image" src="{% static 'main/icons/fast-data-entry.png' %}" class="fast-data-entry-btn mx-2 my-1">
+                    <div class="mx-2"><img class="tax-icon mx-1 my-1" style="width: 45px" src="{% static 'main/icons/tax.png' %}" alt=""></div>
+                    <div class="mx-2"><img class="addedData-icon mx-1 my-1" src="{% static 'main/icons/additionalData.png' %}" alt=""></div>
+                    <input type="image" src="{% static 'main/icons/acct-model.png' %}" class="acct-model mx-2 my-1">
+                    <div class="mx-2"><img class="check-icon mx-1 my-1" style="width: 70px" src="{% static 'main/icons/check.png' %}" alt=""></div>
+                </div>
+            </section>
+
+        <hr class="strLine">
+
+        <section class="infoFromBefore container-fluid ms-4">
+            <label for="glAcc" id="glAccLabel">G/L Account</label>
+            <div class="d-flex glAccText">
+            <input type="text" name="glAcc" id="glAccInput" value="{{ listForHtml.1 }}"> Miscellanous Adjustment
+            </div>
+            <label for="comCode" id="comCodeLabel">Company Code</label>
+            <div class="d-flex comCodeText">
+            <input type="text" name="comCode" id="comCodeInput" value="{{ listForHtml.0 }}"> Transmission Company
+            </div>
+        </section>
+        
+        <section class="container-fluid ms-4">
+            <form action="#" method="post" id="creditEntryForm">
+                {% csrf_token %}
+                    <fieldset class="border p-2 item2Forms">
+                        <legend class="legend w-auto">
+                            Item 2/GL Credit entry/50
+                        </legend>   
+                        <label for="amount" id="amountLabel">Amount</label>
+                        <div class="amountInput d-flex">
+                        {{ form.amount }}
+                        {{ listForHtml.2 }}
+                        </div>
+                        <label for="taxCode" id="taxCodeLabel">Tax Code</label>
+                        {{ form.taxCode }}
+                        <label for="taxJur" id="taxJurLabel">Tax Jur.</label>
+                        {{ form.taxJur }}
+                        <label for="busArea" id="busAreaLabel">Business Area</label>
+                        {{ form.busArea }}
+                        <label for="trdgPartBA" id="trdgPartBALabel">Trdg part.BA</label>
+                        {{ form.trdgPartBA }}
+                        <label for="costCenter" id="costCenterLabel">Cost Center</label>
+                        {{ form.costCenter }}
+                        <label for="order" id="orderLabel">Order</label>
+                        {{ form.order }}
+                        <label for="profitCenter" id="profitCenterLabel">Profit Center</label>
+                        {{ form.profitCenter }}
+                        <label for="profitSegment" id="profitSegmentLabel">Profit Segment</label>
+                        <input type="image" name="profitSegment" id="profitSegmentInput" src="{% static '/main/icons/rightArrow.png' %}">
+                        <label for="wbsElement" id="wbsElementLabel">WBS Element</label>
+                        {{ form.wbsElement }}
+                        <label for="network1" id="networkLabel">Network</label>
+                        <div class="networkText">
+                        {{ form.network1 }}
+                        <input type="text" name="network2" id="networkInput2">
+                        </div>
+                        <input type="image" id="moreIcon" src="{% static '/main/icons/more.png' %}">
+                        <label for="purchasingDoc1" id="purchasingDocLabel">Purchasing Doc.</label>
+                        <div class="purchasingDoc">
+                        {{ form.purchasingDoc1 }}
+                        <input type="text" name="purchasingDoc2" id="purchasingDocInput2">
+                        </div>
+                        <label for="quantity1" id="quantityLabel">Quantity</label>
+                        <div class="quantity d-flex">
+                        {{ form.quantity1 }}
+                        <input type="text" name="quantity2" id="quantityInput2">
+                        </div>
+                        <label for="assignment" id="assignmentLabel">Assignment</label>
+                        {{ form.assignment }}
+                        <label for="text" id="textLabel">Text</label>
+                        <div class="textLongText">
+                        {{ form.text }}
+                        <input type="image" id="longTexts" src="{% static '/main/icons/longTexts.png' %}">
+                    </fieldset>
+                </div>
+                <fieldset class="border page4FormsBottom">
+                    <legend class="legend w-auto">First line item</legend>
+                    <label for="pstKey">PstKy</label>
+                    {{ form.pstKey }}
+                    <label for="accountBottom">Account</label>
+                    {{ form.accountBottom }}
+                    <label for="sglInd">SGL Ind</label>
+                    <input type="text" name="sglInd" id="sglInd"> 
+                    <label for="tType">TType</label>
+                    <input type="text" name="tType" id="tType"> 
+                    <label for="newCoCode">New co. Code</label>
+                    <input type="text" name="newCoCode" id="newCoCode"> 
+                </fieldset>
+            </form>
+        </section>
+
+
+{% endblock%}
