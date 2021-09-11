@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from .forms import DebitEntryForm, TransactionsForms, SecondPageForm, CreditEntryForm, OverviewForm
 from .models import CreditEntry, SecondPage, DebitEntry, Overview
+from random import randrange
+from django.contrib import messages
 
 companyIdDict = {'2909': ['Verizon Wireless', '141 Industrial Parkway', 'Branchburg', '1720010'], '1644': ['ATT', 'New York City', 'New York', '70817081'], '60':['Pierre', '23 WestVille Avenue','Caldwell', '70817081']}
 
@@ -16,11 +18,15 @@ currency = lastSecondPage.currency
 glAcc = lastDebitEntry.accountBottom
 differenceDebitCredit = lastDebitEntry.amount - lastCreditEntry.amount
 
+
 try:
     carrierDetails = companyIdDict[carrierNumber]
 except KeyError:
     carrierDetails = "carrier not found for Account Number  {accNum} that was entered in last page. Go back to correct it.".format(accNum=carrierNumber)
 companyInfo = [carrierNumber, carrierDetails]
+
+def docNumGen():
+    return '1600000' + str(randrange(0,999))
 
 def landPage(request):
     if request.method == 'POST':
@@ -35,6 +41,14 @@ def landPage(request):
     return render(request, "main/landingPage.html", {'form': form})
 
 def secondPage(request):
+    try:
+        if request.session['docNum']:
+            documentNumber = request.session['docNum']
+            messages.add_message(request, 20, 'Document Number is {docNum}'.format(docNum=documentNumber))
+            print(request.session.get_expiry_age())
+            del request.session['docNum']
+    except KeyError:
+        pass
     if request.method == 'POST':
         form = SecondPageForm(request.POST)
         if form.is_valid():
@@ -69,9 +83,18 @@ def creditEntry(request):
 
 def overview(request):
     if request.method == 'POST':
-        form = OverviewForm()
+        form = OverviewForm(request.POST)
         if form.is_valid():
-            form.save()
+            overviewData = form.save()
+            cleanedForm = form.cleaned_data
+            lastSecondPage.reference = cleanedForm['reference']
+            print(lastSecondPage.reference)
+            lastCreditEntry.trdgPartBA = cleanedForm['trdgPartBA']
+            lastSecondPage.docHeader = cleanedForm['docHeader']
+            lastSecondPage.save()
+            lastDebitEntry.save()
+            request.session['docNum'] = docNumGen()
+            return redirect(secondPage)
     else: 
         form = OverviewForm()
     return render(request, 'main/overview.html', {'lastSecondPage': lastSecondPage, 'lastDebitEntry': lastDebitEntry, 'lastCreditEntry': lastCreditEntry, 'fiscal': fiscal, 'form': form, 'companyInfo': companyInfo, 'differenceDebitCredit': differenceDebitCredit})

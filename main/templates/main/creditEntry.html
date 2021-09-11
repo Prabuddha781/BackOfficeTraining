@@ -44,6 +44,15 @@
         <section class="container-fluid ms-4">
             <form action="#" method="post" id="creditEntryForm">
                 {% csrf_token %}
+                {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %} 
+                        <p>
+                            <strong>{{ field.label }} - {{ error|escape }}</strong>
+                        </p>
+                    {% endfor %}
+                {% endfor %}
+                {% endif %}
                     <fieldset class="border p-2 item2Forms">
                         <legend class="legend w-auto">
                             Item 2/GL Credit entry/50

@@ -5,7 +5,7 @@ class DateInput(forms.Form):
     input_type = 'date'
 
 class TransactionsForms(forms.Form):
-    transactionCode = forms.CharField(max_length=4, required=True, label="")
+    transactionCode = forms.CharField(max_length=4, required=True, label=False)
 
 class SecondPageForm(forms.ModelForm):
     class Meta:

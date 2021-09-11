@@ -15,8 +15,17 @@
             <hr class="strLine">
             <div class="container-fluid d-flex flex-row mt-1">
                 <form action="" method="post">
-                    {% csrf_token %}
-                    {{ form }}
+                {% csrf_token %}
+                {% if form.errors %}
+                    {% for field in form %}
+                    {% for error in field.errors %} 
+                        <p>
+                            <strong>{{ form.label}} {{ error|escape }}</strong>
+                        </p>
+                    {% endfor %}
+                    {% endfor %}
+                {% endif %}
+                    {{ form.transactionCode }}
                    <input type="image" src="{% static "main/icons/execute.png" %}" class="mx-1 icons-nav my-auto">
                 </form>
                 <div class="mx-2"><img class="save-icon mx-1" src="{% static "main/icons/save.png" %}" alt=""></div>
