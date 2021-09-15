@@ -18,7 +18,6 @@ currency = lastSecondPage.currency
 glAcc = lastDebitEntry.accountBottom
 differenceDebitCredit = lastDebitEntry.amount - lastCreditEntry.amount
 
-
 try:
     carrierDetails = companyIdDict[carrierNumber]
 except KeyError:
@@ -44,9 +43,9 @@ def secondPage(request):
     try:
         if request.session['docNum']:
             documentNumber = request.session['docNum']
+            print(documentNumber)
             messages.add_message(request, 20, 'Document Number is {docNum}'.format(docNum=documentNumber))
             print(request.session.get_expiry_age())
-            del request.session['docNum']
     except KeyError:
         pass
     if request.method == 'POST':
@@ -59,6 +58,13 @@ def secondPage(request):
     return render(request, 'main/secondPage.html', {'form': form})
 
 def debitEntry(request):
+    lastSecondPage = SecondPage.objects.last() 
+    carrierNumber = lastSecondPage.accountBottom
+    try:
+        carrierDetails = companyIdDict[carrierNumber]
+    except KeyError:
+        carrierDetails = "carrier not found for Account Number  {accNum} that was entered in last page. Go back to correct it.".format(accNum=carrierNumber)
+    companyInfo = [carrierNumber, carrierDetails]
     if request.method == 'POST':
         form = DebitEntryForm(request.POST)
         if form.is_valid():
@@ -69,6 +75,11 @@ def debitEntry(request):
     return render(request, 'main/debitEntry.html', {'form': form, 'companyInfo': companyInfo, 'lastSecondPage': lastSecondPage})
 
 def creditEntry(request):
+    lastSecondPage = SecondPage.objects.last() 
+    lastDebitEntry = DebitEntry.objects.last()    
+    compCode = lastSecondPage.companyCode
+    currency = lastSecondPage.currency
+    glAcc = lastDebitEntry.accountBottom
     listForHtml = [compCode, glAcc, currency]
     if request.method == 'POST':
         form = CreditEntryForm(request.POST)
@@ -82,17 +93,26 @@ def creditEntry(request):
     return render(request, 'main/creditEntry.html', {'listForHtml': listForHtml, 'form': form})
 
 def overview(request):
+    lastSecondPage = SecondPage.objects.last() 
+    lastDebitEntry = DebitEntry.objects.last()
+    lastCreditEntry = CreditEntry.objects.last()
+    fiscal = lastSecondPage.postDate.year
+    try:
+        carrierDetails = companyIdDict[carrierNumber]
+    except KeyError:
+        carrierDetails = "carrier not found for Account Number  {accNum} that was entered in last page. Go back to correct it.".format(accNum=carrierNumber)
+    companyInfo = [carrierNumber, carrierDetails]
+    differenceDebitCredit = lastDebitEntry.amount - lastCreditEntry.amount
     if request.method == 'POST':
         form = OverviewForm(request.POST)
         if form.is_valid():
             overviewData = form.save()
             cleanedForm = form.cleaned_data
             lastSecondPage.reference = cleanedForm['reference']
-            print(lastSecondPage.reference)
             lastCreditEntry.trdgPartBA = cleanedForm['trdgPartBA']
             lastSecondPage.docHeader = cleanedForm['docHeader']
             lastSecondPage.save()
-            lastDebitEntry.save()
+            lastCreditEntry.save()
             request.session['docNum'] = docNumGen()
             return redirect(secondPage)
     else: 

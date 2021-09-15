@@ -5,7 +5,7 @@ from django.db.models.deletion import CASCADE
 
 class SecondPage(models.Model):
     today = date.today()
-    d1 = today.strftime("%d/%m/%Y")
+    d1 = today.strftime("%m/%d/%Y")
     docDate = models.DateField()
     docType = models.CharField(blank=False, max_length=4, default="?")
     companyCode = models.CharField(default="?", max_length=4, blank=True)
